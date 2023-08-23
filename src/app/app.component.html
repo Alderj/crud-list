@@ -10,7 +10,9 @@
       <ul class="list-group">
         <li 
         *ngFor="let employee of employeeArray"
-        class="list-group-item list-group-item-action">
+        class="list-group-item list-group-item-action"
+        (click)="openForEdit(employee)"
+        [class.active]="employee == selectedEmployee">
       <span class="badge badge-danger">
             {{ employee.id }}
        </span>
@@ -28,7 +30,7 @@
           <div class="form-group">
             <input type="text" [(ngModel)]="selectedEmployee.country" placeholder="Insira seu país aqui" class="form-control">
           </div>
-          <button class="btn btn-primary">
+          <button (click)="addOrEdit()" class="btn btn-primary">
             Submit
           </button>
 
